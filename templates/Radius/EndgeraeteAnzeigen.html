@@ -1,0 +1,96 @@
+{% extends 'Radius/home.html' %}
+
+{% block content %}
+
+<style>
+table, th, td {
+  border: 1px solid gainsboro;
+} 
+th { width: 150;}
+
+</style>
+
+
+<h1>Geräteübersicht</h1>
+
+<table border="1">
+  <tr>
+    <th>Gerätetyp</th>
+    <th>Modell</th>
+    <th>Seriennummer</th>
+    <th>MAC-Adresse</th>
+    <th>IP-Adresse</th>
+    <th>Gruppe</th>
+    <th>VLAN</th>
+    <th>Benutzer</th>
+    <th>Standort</th>
+    <th>Beschreibung</th>
+  </tr>
+  <tr>
+    <td>Notebook</td>
+    <td>Asus</td>
+    <td></td>
+    <td>e0:3f:49:11:10:0a</td>
+    <td>192.168.12.1</td>
+    <td>Benutzer</td>
+    <td>49</td>
+    <td>Andreas</td>
+    <td>Zimmer4322A</td>
+    <td>Entwicklergerät</td>
+   </tr>
+   <tr>
+  <td>Notebook</td>
+    <td>DELL Latitude</td>
+    <td></td>
+    <td>e0:3f:49:11:10:0a</td>
+    <td>192.168.12.1</td>
+    <td>Benutzer</td>
+    <td>49</td>
+    <td>Martin</td>
+    <td>Zimmer4322A</td>
+    <td>Entwicklergerät</td>
+   </tr>
+    <tr>
+  <td>PC</td>
+    <td>HP ProLiant</td>
+    <td></td>
+    <td>e0:3f:49:11:10:0a</td>
+    <td>192.168.12.1</td>
+    <td>Benutzer</td>
+    <td>49</td>
+    <td>Nico</td>
+    <td>Zimmer4322A</td>
+    <td>Entwicklergerät</td>
+   </tr>
+    <tr>
+  <td>PC</td>
+    <td>HP ProLiant</td>
+    <td></td>
+    <td>e0:3f:49:11:10:0a</td>
+    <td>192.168.12.1</td>
+    <td>Benutzer</td>
+    <td>49</td>
+    <td>Marco</td>
+    <td>Zimmer4322A</td>
+    <td>Entwicklergerät</td>
+   </tr>
+    <tr>
+  <td>Server</td>
+    <td>HP ProLiant</td>
+    <td></td>
+    <td>e0:3f:49:11:10:0a</td>
+    <td>192.168.12.1</td>
+    <td>Administratoren</td>
+    <td>35</td>
+    <td>Marco</td>
+    <td>Zimmer4322A</td>
+    <td>Entwicklergerät</td>
+   </tr>
+</table>
+
+
+{% endblock %}
+
+
+
+

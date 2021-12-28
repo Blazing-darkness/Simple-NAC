@@ -1,0 +1,15 @@
+{% extends 'Radius/home.html' %}
+
+{% block content %}
+
+	<form method="POST">
+		{% csrf_token %}
+			
+		<div class="form-group">
+		<button class="btn btn-outline-info" type="submit">Apply!</button>
+		</div>
+		
+	</form>
+
+{% endblock %}
+

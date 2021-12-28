@@ -1,0 +1,24 @@
+{% extends 'Radius/home.html' %}
+
+{% block content %}
+
+
+	<form method="POST">
+		{% csrf_token %}
+		
+			<fieldset class="form-group">	
+			{% for entry in form %}
+			<table>
+				{{ entry.label_tag }} <p class="tab"> {{ entry }} </p><br>
+			</table
+			{% endfor %}	
+			</fieldset>
+			
+		<div class="form-group">
+		<button class="btn btn-outline-info" type="submit">übernehmen!</button>
+		</div>
+		
+	</form>
+
+
+{% endblock %}

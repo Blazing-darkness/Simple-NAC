@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<title></title>
+
+<style>
+
+hr{
+width: 100%;
+height: 1px;
+top: 50px;
+} 
+
+.sidenav{
+height: 100%;
+width: 175px;
+position: fixed;
+z-index: 1;
+top: 103px;
+left: 0px;
+background-color: #9090FF;
+overflow: scroll;
+padding-top: 20px;
+}
+
+.sidenav a{
+padding: 8px 8px 8px 8px;
+text-decoroation: none;
+font-size: 12px;
+display: block;
+
+}
+
+.sidenav a:hover{
+color: #ffffff
+}
+
+.radius{
+position: absolute;
+left: 185px;
+}
+
+.sidenav h1{
+padding: 8px 8px 8px 8px;
+text-decoroation: none;
+font-size: 12px;
+display: block;
+
+}
+
+</style>
+
+<body lang="de-DE" dir="ltr"><p>
+{% load static %}
+  <img src="{% static 'Radius/fence.jpg' %}" name="Bild1" align="bottom" width="140" height="70" border="1"/><font face="FreeSans, sans-serif">
+<font size="5" style="font-size: 20pt">Network
+Access Control</font></font>
+<hr>
+
+<div class="sidenav">
+<br>
+<h1>NAVIGATION</h1>
+
+	<br>
+	<a href="{% url 'Seite_01' %}">	<b>Create authenticator</b> </a><br>
+	<a href="{% url 'Seite_02' %}">	<b>Show authenticator</b> </a><br>
+	
+	<!--
+	<a href="{% url 'Seite_03' %}">	<b>Create Radacct</b> </a><br>
+	<a href="{% url 'Seite_04' %}">	<b>Show RAdacct</b> </a><br>
+	-->
+	
+	<a href="{% url 'Seite_05' %}">	<b>Create supplicant</b> </a><br>
+	<a href="{% url 'Seite_06' %}">	<b>Show supplicant</b> </a><br>
+	
+	<!--
+	<a href="{% url 'Seite_07' %}">	<b>Create Radgroupcheck</b> </a><br>
+	<a href="{% url 'Seite_08' %}">	<b>Show Radgroupcheck</b> </a><br>
+	-->
+	
+	<a href="{% url 'Seite_09' %}">	<b>Create group attributes</b> </a><br>
+	<a href="{% url 'Seite_10' %}">	<b>Show group attributes</b> </a><br>
+	
+	<!--
+	<a href="{% url 'Seite_11' %}">	<b>Create Radpostauth</b> </a><br>
+	<a href="{% url 'Seite_12' %}">	<b>Show Radpostauth</b> </a><br>
+	-->
+	<!--
+	<a href="{% url 'Seite_13' %}">	<b>Create Radreply</b> </a><br>
+	<a href="{% url 'Seite_14' %}">	<b>Show Radreply</b> </a><br>
+	-->
+	
+	<a href="{% url 'Seite_15' %}">	<b>Create membership</b> </a><br>
+	<a href="{% url 'Seite_16' %}">	<b>Show membership</b> </a><br>
+	
+	<a href="{% url 'Seite_18' %}">	<b>Apply changes!</b> </a><br>
+	
+	<a href="{% url 'Seite_17' %}">	<b>(CoA) Change of Authorization</b> </a><br>
+	<br><br><br><br>
+<!--	<a href="./EndgeraetAnzeigen.html" target="Daten"><b>Logout</b></a><br>	-->
+	
+</div>
+
+<div id="content", name="content", class="radius">
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+</p>
+</body>
+</html>

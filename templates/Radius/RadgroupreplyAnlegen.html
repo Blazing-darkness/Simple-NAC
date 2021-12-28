@@ -1,0 +1,25 @@
+{% extends 'Radius/home.html' %}
+
+{% block content %}
+
+<h1>Create group attributes</h1>
+
+	<form method="POST">
+		{% csrf_token %}
+		
+			<fieldset class="form-group">	
+			{% for entry in form %}
+			<table>
+				{{ entry.label_tag }} <p class="tab"> {{ entry }} </p><br>
+			</table
+			{% endfor %}	
+			</fieldset>
+			
+		<div class="form-group">
+		<button class="btn btn-outline-info" type="submit">accept</button>
+		</div>
+		
+	</form>
+
+
+{% endblock %}

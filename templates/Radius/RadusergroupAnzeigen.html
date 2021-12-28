@@ -1,0 +1,56 @@
+{% extends 'Radius/home.html' %}
+
+{% block content %}
+
+<style>
+table, th, td {
+  border: 1px solid gainsboro;
+} 
+th { width: 150;}
+
+</style>
+
+<h1>Show membership</h1>
+
+<table border="1">
+  <tr>
+  	<th>ID</th>
+    <th>Username</th>
+    <th>Groupname</th>
+    <th>Priority</th>
+  </tr>
+{% for entry in Radusergroup %}
+			<tr>
+				
+				<td>	{{ entry.id }}			</td>
+				<td>	{{ entry.username }}	</td>
+    			<td>	{{ entry.groupname }}	</td>
+    			<td>	{{ entry.priority }}	</td>
+				
+			</tr>
+{% endfor %} 
+</table>
+
+	<form method="POST">
+		{% csrf_token %}
+		
+			<fieldset class="form-group">	
+			
+<!--	{% for entry in form %} 		-->
+			<table>
+				{{ entry.label_tag }} <p class="tab"> {{ entry }} </p><br>
+			</table
+<!--	{% endfor %}		  -->	
+			</fieldset>
+			
+		<div class="form-group">
+		<button class="btn btn-outline-info" type="submit">delete</button>
+		</div>
+		
+	</form>
+
+{% endblock %}
+
+
+
+
