@@ -111,8 +111,8 @@ Bei Aufforderung ein leeres Passwort eingeben.
 
 
 
-6. Geräte in die Datenbank „radius“ einpflegen
-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
+6. Geräte in die Datenbank „radius“ einpflegen.
+
         a. Alle Clients (Switche, WLan-Controller, etc.) welche mit Radius-server kommunizieren dürfen, in die passende Tabelle eintragen:
 		INSERT INTO  nas VALUES (NULL ,  '10.0.0.254/32‘,  'Clientname', 'other', NULL ,  'Secret-Key', NULL , NULL ,  'RADIUS Client');
 
