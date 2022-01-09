@@ -8,13 +8,13 @@ Location:	74369 Löchgau, Germany
 ## Download
 
 Vorinstallierte Appliance als OVA-Datei herunterladen:
-	English version:
-		https://drive.google.com/file/d/17kZ0...
-		Password: 8z27!pQf&#+u
+English version:
+https://drive.google.com/file/d/17kZ0...
+Password: 8z27!pQf&#+u
 
-	German version:
-		https://drive.google.com/file/d/1Ax5B...
-		Password: #8z!5pfQ%&+U
+German version:
+https://drive.google.com/file/d/1Ax5B...
+Password: #8z!5pfQ%&+U
 
 ## Einführungsvideo
 
@@ -129,7 +129,7 @@ Bei Aufforderung ein leeres Passwort eingeben.
 
 7. Installiere Python3 & Django.
 
-	Für Python alle Abhängigkeiten zur Verwendung von MySQL installieren:
+Für Python alle Abhängigkeiten zur Verwendung von MySQL installieren:
 		pip install mysqlclient
 
 Evtl. auch:
@@ -142,7 +142,8 @@ Evtl. auch:
 	
 
 9. Switchkonfiguration:
-	Beispiel Cisco-IOS
+
+Beispiel Cisco-IOS
 		aaa new-model
 		!
 		aaa authentication dot1x default group radius
