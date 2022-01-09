@@ -1,0 +1,4 @@
+This software is licensed under GPL.
+Author:		Marco Schmid
+Date:		09.01.2022
+Location:	74369 Löchgau, Germany
