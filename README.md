@@ -112,7 +112,7 @@ Bei Aufforderung ein leeres Passwort eingeben.
 
 
 6. Geräte in die Datenbank „radius“ einpflegen
-
+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
         a. Alle Clients (Switche, WLan-Controller, etc.) welche mit Radius-server kommunizieren dürfen, in die passende Tabelle eintragen:
 		INSERT INTO  nas VALUES (NULL ,  '10.0.0.254/32‘,  'Clientname', 'other', NULL ,  'Secret-Key', NULL , NULL ,  'RADIUS Client');
 
@@ -190,6 +190,9 @@ Fertig
 		aaa port-access mac-based "Portnummer" unauth-vid "VLAN-Nummer"  #default vlan
 
 ## !!!Hinweis für MAC-Authentication!!!
+
 Für MAC-AUTH, muss die MAC-Adresse des Endgeräts, sowohl als Benutzername angegeben, als auch ins Passwortfeld eingetragen werden.
+
 Also an dieser Stelle https://youtu.be/EzjjqeYWKGA?t=437
+
 Sowohl ins Feld "Username", als auch ins Feld "Value" die MAC-Adresse eintragen.
