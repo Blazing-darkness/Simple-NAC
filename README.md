@@ -7,7 +7,8 @@ Location:	74369 Löchgau, Germany
 
 ## Download
 
-Vorinstallierte Appliance als OVA-Datei herunterladen:
+Vorinstallierte Appliance als OVA-Datei herunterladen.
+
 English version:
 https://drive.google.com/file/d/17kZ0...
 Password: 8z27!pQf&#+u
@@ -20,7 +21,7 @@ Password: #8z!5pfQ%&+U
 
 https://www.youtube.com/watch?v=EzjjqeYWKGA
 
-## Installation
+## Installation der Dienste auf Ubuntu-Server
 
 1. Installation von FreeRadius mit SQL-Modul:
 
@@ -132,18 +133,19 @@ Bei Aufforderung ein leeres Passwort eingeben.
 Für Python alle Abhängigkeiten zur Verwendung von MySQL installieren:
 		pip install mysqlclient
 
-Evtl. auch:
+Evtl. auch
 		sudo apt-get install python3-dev default-libmysqlclient-dev build-essential # Debian / Ubuntu
 		sudo yum install python3-devel mysql-devel # Red Hat / CentOS
 
 
-8. Starten und Stoppen von Freeradius:
+8. Starten und Stoppen von Freeradius.
 		sudo service freeradius start/restart
 	
 
-9. Switchkonfiguration:
+9. Switchkonfiguration.
 
 Beispiel Cisco-IOS
+
 		aaa new-model
 		!
 		aaa authentication dot1x default group radius
@@ -178,7 +180,8 @@ Beispiel Cisco-IOS
 		 key start123
 
 
-Beispiel HP-ProCurve:
+Beispiel HP-ProCurve
+
 		radius-server host X.X.X.X acct-port 1813 key "Kennwort"
 		aaa port-access mac-based "Portnummer"  #aktivieren
 		aaa port-access mac-based "Portnummer" unauth-vid "VLAN-Nummer"  #default vlan
