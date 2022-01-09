@@ -1,4 +1,4 @@
-# Network Access Control
+# Simple Network Access Control
 Version:	1.0
 License:	GPL
 Author:		Marco Schmid
@@ -136,6 +136,9 @@ Für Python alle Abhängigkeiten zur Verwendung von MySQL installieren:
 Evtl. auch
 		sudo apt-get install python3-dev default-libmysqlclient-dev build-essential # Debian / Ubuntu
 		sudo yum install python3-devel mysql-devel # Red Hat / CentOS
+		
+Anschließend, die NAC aus diesem Repository in Django integrieren.
+Fertig
 
 
 8. Starten und Stoppen von Freeradius.
@@ -144,7 +147,7 @@ Evtl. auch
 
 9. Switchkonfiguration.
 
-Beispiel Cisco-IOS
+		Beispiel Cisco-IOS
 
 		aaa new-model
 		!
@@ -180,10 +183,13 @@ Beispiel Cisco-IOS
 		 key start123
 
 
-Beispiel HP-ProCurve
+		Beispiel HP-ProCurve
 
 		radius-server host X.X.X.X acct-port 1813 key "Kennwort"
 		aaa port-access mac-based "Portnummer"  #aktivieren
 		aaa port-access mac-based "Portnummer" unauth-vid "VLAN-Nummer"  #default vlan
 
-
+## !!!Hinweis für MAC-Authentication!!!
+Für MAC-AUTH, muss die MAC-Adresse des Endgeräts, sowohl als Benutzername angegeben, als auch ins Passwortfeld eingetragen werden.
+Also an dieser Stelle https://youtu.be/EzjjqeYWKGA?t=437
+Sowohl ins Feld "Username", als auch ins Feld "Value" die MAC-Adresse eintragen.
