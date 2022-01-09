@@ -21,7 +21,7 @@ Password: #8z!5pfQ%&+U
 
 https://www.youtube.com/watch?v=EzjjqeYWKGA
 
-## Installation der Dienste auf Ubuntu-Server
+## Manuelle Installation der Dienste (Ubuntu-Server)
 
 1. Installation von FreeRadius mit SQL-Modul:
 
