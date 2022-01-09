@@ -1,5 +1,26 @@
-# Installation
+# Network Access Control
+Version:	1.0
+License:	GPL
+Author:		Marco Schmid
+Date: 		09.01.2022
+Location:	74369 Löchgau, Germany
 
+## Download
+
+Vorinstallierte Appliance als OVA-Datei herunterladen:
+English version:
+	https://drive.google.com/file/d/17kZ0...
+	Password: 8z27!pQf&#+u
+
+German version:
+	https://drive.google.com/file/d/1Ax5B...
+	Password: #8z!5pfQ%&+U
+
+## Einführungsvideo
+
+https://www.youtube.com/watch?v=EzjjqeYWKGA
+
+## Installation
 
 1. Installation von FreeRadius mit SQL-Modul:
 
@@ -76,7 +97,7 @@ Bei Aufforderung ein leeres Passwort eingeben.
 		    read_groups = yes
 		    #uncomment readclients
 		    readclients = yes
-}
+		}
 
 
 
@@ -106,9 +127,59 @@ Bei Aufforderung ein leeres Passwort eingeben.
 		INSERT INTO radgroupreply (groupname, attribute, op, value) VALUES ('Gruppenname', 'Tunnel-Type', ':=', 13), ('Gruppenname', 'Tunnel-Medium-Type', ':=', '6'), ('Gruppenname', 'Tunnel-Private-Group-Id', ':=', 100);
 
 
+7. Installiere Python3 & Django.
+Für Python alle Abhängigkeiten zur Verwendung von MySQL installieren:
+	pip install mysqlclient
 
-7. Starten und Stoppen von Freeradius:
+Evtl. auch:
+	sudo apt-get install python3-dev default-libmysqlclient-dev build-essential # Debian / Ubuntu
+	sudo yum install python3-devel mysql-devel # Red Hat / CentOS
+
+
+8. Starten und Stoppen von Freeradius:
 	sudo service freeradius start/restart
+	
 
+9. Switchkonfiguration:
+Beispiel Cisco-IOS
+	aaa new-model
+	!
+	aaa authentication dot1x default group radius
+	aaa authorization network default group radius
+	!
+	aaa session-id common
+	system mtu routing 1500
+	!
+	dot1x system-auth-control
+	!
+	spanning-tree mode rapid-pvst
+	spanning-tree extend system-id
+	!
+	interface GigabitEthernet0/2
+	 switchport mode access
+	 authentication port-control auto
+	 mab
+	!
+	interface Vlan1
+	 ip address 10.0.0.254 255.255.255.0
+	!
+	interface Vlan100
+	 ip address 192.168.100.254 255.255.255.0
+	 ip helper-address 10.0.0.1
+	!
+	interface Vlan200
+	 ip address 192.168.200.254 255.255.255.0
+	 ip helper-address 10.0.0.1
+	!
+	radius server freeradius
+	 address ipv4 10.0.0.1 auth-port 1812 acct-port 1813
+	 key start123
+
+
+Beispiel HP-ProCurve:
+
+radius-server host X.X.X.X acct-port 1813 key "Kennwort"
+aaa port-access mac-based "Portnummer"  #aktivieren
+aaa port-access mac-based "Portnummer" unauth-vid "VLAN-Nummer"  #default vlan
 
 
