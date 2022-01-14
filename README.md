@@ -7,7 +7,7 @@ Location:	74369 Löchgau, Germany
 
 ## Download
 
-Download pre-installed Appliance as OVA-file.
+Download pre-installed appliance as OVA-file.
 
 English version:
 https://drive.google.com/file/d/17kZ0...
