@@ -7,7 +7,7 @@ Location:	74369 Löchgau, Germany
 
 ## Download
 
-Download pre-installed Appliance as OVA-File.
+Download pre-installed Appliance as OVA-file.
 
 English version:
 https://drive.google.com/file/d/17kZ0...
@@ -23,16 +23,16 @@ https://www.youtube.com/watch?v=EzjjqeYWKGA
 
 ## Manual installation of services (Ubuntu-Server)
 
-1. Installation of FreeRadius with SQL-Modul:
+1. Installation of FreeRadius with SQL-modul:
 
         a. sudo apt-get install freeradius freeradius-utils freeradius-sql
 
-2. Installation and preparation of MySQL-Database:
+2. Installation and preparation of MySQL-database:
 
         a. sudo apt-get install mysql-server mysql-clients
 
         b. Login with sudo mysql –u root –p
-Blank password if asked for login
+Type blank password if asked for login
 
         c. Create Database with „CREATE DATABASE radius;“
 
@@ -83,7 +83,7 @@ Blank password if asked for login
 		}
 
 
-4. Enter Login-Data for MySQL-Server
+4. Enter Logindata for MySQL-server
 
         a. Change of file „/etc/freeradius/3.0/mods-available/sql“:
 
@@ -139,11 +139,11 @@ Eventually you also have to install this:
 		sudo apt-get install python3-dev default-libmysqlclient-dev build-essential # Debian / Ubuntu
 		sudo yum install python3-devel mysql-devel # Red Hat / CentOS
 		
-Finally, import the NAC-Code of this repository into Django, as a Django-App.
+8. Finally, import the NAC-Code of this repository into Django, as a Django-App.
 Finish
 
 
-8. Start and Stop of freeradius.
+9. Start and Stop of freeradius.
 
 		sudo service freeradius start/restart
 	
