@@ -131,9 +131,11 @@ Bei Aufforderung ein leeres Passwort eingeben.
 7. Installiere Python3 & Django.
 
 Für Python alle Abhängigkeiten zur Verwendung von MySQL installieren:
+	
 		pip install mysqlclient
 
 Evtl. auch
+
 		sudo apt-get install python3-dev default-libmysqlclient-dev build-essential # Debian / Ubuntu
 		sudo yum install python3-devel mysql-devel # Red Hat / CentOS
 		
@@ -145,7 +147,7 @@ Fertig
 		sudo service freeradius start/restart
 	
 
-9. Switchkonfiguration.
+## Switchkonfiguration.
 
 		Beispiel Cisco-IOS
 
