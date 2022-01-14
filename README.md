@@ -144,10 +144,11 @@ Fertig
 
 
 8. Starten und Stoppen von Freeradius.
+
 		sudo service freeradius start/restart
 	
 
-## Switchkonfiguration.
+## Switchkonfiguration
 
 		Beispiel Cisco-IOS
 
