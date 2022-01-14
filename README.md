@@ -150,7 +150,7 @@ Fertig
 
 ## Switchkonfiguration
 
-		Beispiel Cisco-IOS
+Beispiel Cisco-IOS
 
 		aaa new-model
 		!
@@ -186,7 +186,7 @@ Fertig
 		 key start123
 
 
-		Beispiel HP-ProCurve
+Beispiel HP-ProCurve
 
 		radius-server host X.X.X.X acct-port 1813 key "Kennwort"
 		aaa port-access mac-based "Portnummer"  #aktivieren
