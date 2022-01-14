@@ -7,7 +7,7 @@ Location:	74369 Löchgau, Germany
 
 ## Download
 
-Vorinstallierte Appliance als OVA-Datei herunterladen.
+Download pre-installed Appliance as OVA-File.
 
 English version:
 https://drive.google.com/file/d/17kZ0...
@@ -17,46 +17,46 @@ German version:
 https://drive.google.com/file/d/1Ax5B...
 Password: #8z!5pfQ%&+U
 
-## Einführungsvideo
+## Introduction video
 
 https://www.youtube.com/watch?v=EzjjqeYWKGA
 
-## Manuelle Installation der Dienste (Ubuntu-Server)
+## Manual installation of services (Ubuntu-Server)
 
-1. Installation von FreeRadius mit SQL-Modul:
+1. Installation of FreeRadius with SQL-Modul:
 
         a. sudo apt-get install freeradius freeradius-utils freeradius-sql
 
-2. Installieren und vorbereiten der MySQL-Datenbank:
+2. Installation and preparation of MySQL-Database:
 
         a. sudo apt-get install mysql-server mysql-clients
 
-        b. Anmelden mit sudo mysql –u root –p
-Bei Aufforderung ein leeres Passwort eingeben.
+        b. Login with sudo mysql –u root –p
+Blank password if asked for login
 
-        c. Datenbank erstellen, mit „CREATE DATABASE radius;“
+        c. Create Database with „CREATE DATABASE radius;“
 
-        d. Neuen MySQL-Rootuser anlegen:
+        d. Create new MySQL-Rootuser:
 		CREATE USER 'username'@'hostname' IDENTIFIED BY 'password';
-		Hierbei darauf achten, dass das @-Zeichen von zwei Hochkomma umschlossen ist!!!
+		The @-sign should be inclosed between two exclamation marks!!!
 
-        e. Dem neuen MySQL-Rootuser alle Rechte geben:
+        e. Grant all privileges to MySQL-Rootuser:
 		GRANT ALL PRIVILEGES ON *.* TO 'username'@'hostname';
-		Auch hier wieder beim @-Zeichen darauf achten.
+		Again, be aware of the @-sign.
 
-        f. Die neue Berechtigung anwenden:
+        f. Apply new privileges:
 		FLUSH PRIVILEGES;
 
-        g. Mit „exit“ die MySQL-Datenbank verlassen und das Radius-Datenbankschema einspielen:
+        g. Leave MySQL-Database with "exit" and import Radius-Databasescheme:
 		sudo mysql -u root -p radius < /etc/freeradius/3.0/mods-config/sql/main/mysql/schema.sql;
 		Bei Problemen überprüfen, ob auf die Datei „schema.sql“ ausreichend Zugriffsberechtigung existiert.
 		Im Zweifel einfach Komplettzugriff mit chmod 777 schema.sql
 
 
-3. Konfiguration von Freeradius
+3. Configuration of freeradius
 
-        a. Anpassen von „/etc/freeradius/3.0/sites-enabled/default“
-		Änderungen wie folgt:
+        a. Change of „/etc/freeradius/3.0/sites-enabled/default“
+		Changes as follows:
 
 		authorize {
 		#   files
@@ -83,9 +83,9 @@ Bei Aufforderung ein leeres Passwort eingeben.
 		}
 
 
-4. Zugangsdaten zum MySQL-Server eintragen 
+4. Enter Login-Data for MySQL-Server
 
-        a. Anpassen der Datei „/etc/freeradius/3.0/mods-available/sql“:
+        a. Change of file „/etc/freeradius/3.0/mods-available/sql“:
 
 		sql {
 		    driver = "rlm_sql_mysql"
@@ -104,53 +104,53 @@ Bei Aufforderung ein leeres Passwort eingeben.
 
 
 
-5. Symbolischen Link setzen/anlegen:
+5. Create symbolic link:
 
-        a. Folgenden Befehl ausführen:
+        a. Execute this command:
 		sudo ln –s /etc/freeradius/3.0/mods-available/sql /etc/freeradius/… …/3.0/mods-enabled/sql
 
 
 
-6. Geräte in die Datenbank „radius“ einpflegen.
+6. Insert your enddevice into database (optional). You can do this later by using the WebGUI.
 
-        a. Alle Clients (Switche, WLan-Controller, etc.) welche mit Radius-server kommunizieren dürfen, in die passende Tabelle eintragen:
+        a. All clients (Switche, WLan-Controller, etc.) that are allowed to communicate with radius-server. Insert into correct table:
 		INSERT INTO  nas VALUES (NULL ,  '10.0.0.254/32‘,  'Clientname', 'other', NULL ,  'Secret-Key', NULL , NULL ,  'RADIUS Client');
 
-        b. Wichtig!!! Die MAC-Adresse des Clients muss als Username&Passwort in die Tabelle eingetragen werden:
+        b. Important!!! The MAC-Address of the client has to be entered as both, Username as well as Passwort:
 		INSERT INTO radcheck (username, attribute, op, value) VALUES ('MAC-Adresse', 'Cleartext-Password', ':=', 'MAC-Adresse');
 
-        c. Auch hier muss man wieder die MAC-Adresse als Name angeben.
+        c. Here you also have to enter MAC-Address as name:
 		Gruppenname kann beliebig sein, aber identisch mit dem Gruppennamen aus dem nachfolgenden Unterpunkt ‚d.‘
 		INSERT INTO radusergroup (username, groupname, priority) VALUES ('MAC-Adresse', 'Gruppenname', '1');
 
-        d. Der Gruppenname muss identisch sein, wie bei Unterpunkt ‚c.‘.
+        d. Groupname has to be identical with point ‚c.‘ above.
 		Der Parameter „Tunnel-Private-Group-Id“ entspricht der VLan-ID.
 		INSERT INTO radgroupreply (groupname, attribute, op, value) VALUES ('Gruppenname', 'Tunnel-Type', ':=', 13), ('Gruppenname', 'Tunnel-Medium-Type', ':=', '6'), ('Gruppenname', 'Tunnel-Private-Group-Id', ':=', 100);
 
 
-7. Installiere Python3 & Django.
+7. Installation of Python3 & Django.
 
-Für Python alle Abhängigkeiten zur Verwendung von MySQL installieren:
+Install all dependencies to use MySQL with Python:
 	
 		pip install mysqlclient
 
-Evtl. auch
+Eventually you also have to install this:
 
 		sudo apt-get install python3-dev default-libmysqlclient-dev build-essential # Debian / Ubuntu
 		sudo yum install python3-devel mysql-devel # Red Hat / CentOS
 		
-Anschließend, die NAC aus diesem Repository in Django integrieren.
-Fertig
+Finally, import the NAC-Code of this repository into Django, as a Django-App.
+Finish
 
 
-8. Starten und Stoppen von Freeradius.
+8. Start and Stop of freeradius.
 
 		sudo service freeradius start/restart
 	
 
-## Switchkonfiguration
+## Switchconfiguration
 
-Beispiel Cisco-IOS
+Example for Cisco-IOS
 
 		aaa new-model
 		!
@@ -186,16 +186,16 @@ Beispiel Cisco-IOS
 		 key start123
 
 
-Beispiel HP-ProCurve
+Example for HP-ProCurve
 
 		radius-server host X.X.X.X acct-port 1813 key "Kennwort"
 		aaa port-access mac-based "Portnummer"  #aktivieren
 		aaa port-access mac-based "Portnummer" unauth-vid "VLAN-Nummer"  #default vlan
 
-## !!!Hinweis für MAC-Authentication!!!
+## !!!Important notice for MAC-Authentication!!!
 
-Für MAC-AUTH, muss die MAC-Adresse des Endgeräts, sowohl als Benutzername angegeben, als auch ins Passwortfeld eingetragen werden.
+For MAC-AUTH you have to enter the mac of your device as user AND password!!!
 
-Also an dieser Stelle https://youtu.be/EzjjqeYWKGA?t=437
+Do it here: https://youtu.be/EzjjqeYWKGA?t=437
 
-Sowohl ins Feld "Username", als auch ins Feld "Value" die MAC-Adresse eintragen.
+So you have to enter the MAC-Address into textfield "Username" and textfield "Value".
