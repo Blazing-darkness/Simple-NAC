@@ -1,9 +1,20 @@
 # Simple Network Access Control
-Version:	1.0
-License:	GPL
-Author:		Marco Schmid
-Date: 		09.01.2022
-Location:	74369 Löchgau, Germany
+
+Appliance for use of AAA in local network environments.
+Main features
+		Authentication:
+  		802.1x
+  		MAC-Auth
+  		
+  		Authoriziation:
+		Dynamic VLan assignment
+		Dynamic ACL assignment
+		Dynamic QoS assignment
+
+		Accounting:
+		Logfiles & Databases
+
+Change of Authorization (CoA) under development!
 
 ## Download
 
