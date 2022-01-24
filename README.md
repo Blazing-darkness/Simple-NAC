@@ -1,5 +1,11 @@
 # Simple Network Access Control
 
+Version:	1.0
+License:	GPL
+Author:		Marco Schmid
+Date: 		09.01.2022
+Location:	74369 Löchgau, Germany
+
 Appliance for use of AAA in local network environments.
 
 Main features
@@ -16,7 +22,7 @@ Main features
 		Accounting:
 		Logfiles & Databases
 
-Change of Authorization (CoA) under development!
+"Change of Authorization" (CoA) under development!
 
 ## Download
 
@@ -201,9 +207,9 @@ Example for Cisco-IOS
 
 Example for HP-ProCurve
 
-		radius-server host X.X.X.X acct-port 1813 key "Kennwort"
-		aaa port-access mac-based "Portnummer"  #aktivieren
-		aaa port-access mac-based "Portnummer" unauth-vid "VLAN-Nummer"  #default vlan
+		radius-server host X.X.X.X acct-port 1813 key "password"
+		aaa port-access mac-based "Portnummer"  #activation
+		aaa port-access mac-based "Portnummer" unauth-vid "VLAN-number"  #default vlan
 
 ## !!!Important notice for MAC-Authentication!!!
 
