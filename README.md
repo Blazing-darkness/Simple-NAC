@@ -20,7 +20,8 @@ Main features
 		Dynamic QoS assignment
 
 		Accounting:
-		Logfiles & Databases
+		MySQL-Database
+		Logfile
 
 "Change of Authorization" (CoA) under development!
 
