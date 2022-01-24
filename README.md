@@ -30,11 +30,11 @@ Main features
 Download pre-installed appliance as OVA-file.
 
 English version:
-https://drive.google.com/file/d/17kZ0...
+https://drive.google.com/file/d/17kZ0z2uOfTDNwSm244q5XN9c8l4TQYYb/view
 Password: 8z27!pQf&#+u
 
 German version:
-https://drive.google.com/file/d/1Ax5B...
+https://drive.google.com/file/d/1Ax5B0iWqn5qHB9aGEvnUsJW4Xt9GUHqT/view
 Password: #8z!5pfQ%&+U
 
 ## Introduction video
