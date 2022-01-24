@@ -1,7 +1,9 @@
 # Simple Network Access Control
 
 Appliance for use of AAA in local network environments.
+
 Main features
+
 		Authentication:
   		802.1x
   		MAC-Auth
